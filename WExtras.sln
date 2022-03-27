@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32314.265
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WExtras", "WExtras\WExtras.csproj", "{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}.Release|Any CPU.ActiveCfg = Release|x64
+		{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}.Release|Any CPU.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7231A89-C18F-4BD5-9564-88949BEABA19}
+	EndGlobalSection
+EndGlobal
