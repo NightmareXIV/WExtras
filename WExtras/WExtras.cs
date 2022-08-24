@@ -1,4 +1,5 @@
-﻿using Dalamud.Game;
+﻿global using ECommons.DalamudServices;
+using Dalamud.Game;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Lumina.Excel.GeneratedSheets;
@@ -7,16 +8,17 @@ using System.Reflection;
 
 namespace WExtras
 {
-    public class WExtras : IDalamudPlugin
+    public unsafe class WExtras : IDalamudPlugin
     {
         public string Name => "WeathermanExtras";
         WindowSystem ws;
         ConfigGui configGui;
         internal Config config;
         long nextCheck = 0;
+        internal byte* TrueWeather;
         public WExtras(DalamudPluginInterface pluginInterface)
         {
-            pluginInterface.Create<Svc>();
+            ECommons.ECommons.Init(pluginInterface);
             config = Svc.PluginInterface.GetPluginConfig() as Config ?? new();
             ws = new();
             configGui = new(this);
@@ -24,6 +26,7 @@ namespace WExtras
             Svc.PluginInterface.UiBuilder.Draw += ws.Draw;
             Svc.PluginInterface.UiBuilder.OpenConfigUi += delegate { configGui.IsOpen = true; };
             Svc.Framework.Update += ApplySettings;
+            TrueWeather = (byte*)(*(IntPtr*)Svc.SigScanner.GetStaticAddressFromSig("48 8B 05 ?? ?? ?? ?? 48 83 C1 10 48 89 74 24") + 0x26);
         }
 
         private void ApplySettings(Framework framework)

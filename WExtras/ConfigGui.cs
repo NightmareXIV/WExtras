@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WExtras
 {
-    internal class ConfigGui : Window
+    internal unsafe class ConfigGui : Window
     {
         WExtras p;
 
@@ -39,13 +39,25 @@ namespace WExtras
                 var w = p.GetWeathers();
                 if(p != null)
                 {
-                    if(ImGui.BeginCombo("##setweather", "Select weather..."))
+                    if (ImGui.BeginCombo("##setweather", "Select weather..."))
                     {
-                        foreach(var x in p.GetWeathers())
+                        foreach (var x in p.GetWeathers())
                         {
-                            if(ImGui.Selectable($"{x.Key} / {x.Value}"))
+                            if (ImGui.Selectable($"{x.Key} / {x.Value}"))
                             {
                                 p.SetWeather(x.Key);
+                            }
+                        }
+                        ImGui.EndCombo();
+                    }
+
+                    if (ImGui.BeginCombo("##setweathert", "Override true weather value..."))
+                    {
+                        foreach (var x in p.GetWeathers())
+                        {
+                            if (ImGui.Selectable($"{x.Key} / {x.Value}"))
+                            {
+                                *p.TrueWeather = x.Key;
                             }
                         }
                         ImGui.EndCombo();

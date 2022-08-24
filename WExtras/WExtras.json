@@ -1,6 +1,11 @@
 ﻿{
+  "Author": "Eternita",
   "Name": "WeathermanExtras",
-  "Author": "Eternita-S",
+  "InternalName": "WExtras",
+  "AssemblyVersion": "1.0.0.2",
   "Description": "Experimental Weatherman functions. Use at your own risk.",
-  "RepoUrl": "https://github.com/"
+  "ApplicableVersion": "any",
+  "RepoUrl": "https://github.com/",
+  "DalamudApiLevel": 7,
+  "LoadPriority": 0
 }
