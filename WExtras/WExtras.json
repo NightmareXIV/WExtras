@@ -1,11 +1,11 @@
 ﻿{
-  "Author": "Eternita",
+  "Author": "NightmareXIV",
   "Name": "WeathermanExtras",
   "InternalName": "WExtras",
-  "AssemblyVersion": "1.0.0.2",
+  "AssemblyVersion": "9.0.0.0",
   "Description": "Experimental Weatherman functions. Use at your own risk.",
   "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/",
-  "DalamudApiLevel": 7,
+  "RepoUrl": "https://github.com/NightmareXIV/WExtras",
+  "DalamudApiLevel": 8,
   "LoadPriority": 0
 }
