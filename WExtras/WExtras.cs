@@ -30,7 +30,7 @@ namespace WExtras
             TrueWeather = (byte*)(*(IntPtr*)Svc.SigScanner.GetStaticAddressFromSig("48 8B 05 ?? ?? ?? ?? 48 83 C1 10 48 89 74 24") + 0x26);
         }
 
-        private void ApplySettings(Framework framework)
+        private void ApplySettings(object framework)
         {
             if(Environment.TickCount64 > nextCheck)
             {

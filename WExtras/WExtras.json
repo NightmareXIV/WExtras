@@ -1,11 +1,10 @@
 ﻿{
-  "Author": "NightmareXIV",
-  "Name": "WeathermanExtras",
-  "InternalName": "WExtras",
-  "AssemblyVersion": "9.0.0.0",
-  "Description": "Experimental Weatherman functions. Use at your own risk.",
-  "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/NightmareXIV/WExtras",
-  "DalamudApiLevel": 8,
-  "LoadPriority": 0
+    "Author": "NightmareXIV",
+    "Name": "WeathermanExtras",
+    "InternalName": "WExtras",
+    "Description": "Experimental Weatherman functions. Use at your own risk.",
+    "Punchline": "Experimental Weatherman functions. ",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/NightmareXIV/WExtras",
+    "LoadPriority": 0
 }
