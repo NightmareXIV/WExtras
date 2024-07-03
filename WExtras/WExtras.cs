@@ -3,6 +3,7 @@ using Dalamud.Game;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using ECommons;
+using ECommons.Logging;
 using Lumina.Excel.GeneratedSheets;
 using System;
 using System.Reflection;
@@ -17,7 +18,7 @@ namespace WExtras
         internal Config config;
         long nextCheck = 0;
         internal byte* TrueWeather;
-        public WExtras(DalamudPluginInterface pluginInterface)
+        public WExtras(IDalamudPluginInterface pluginInterface)
         {
             ECommonsMain.Init(pluginInterface, this);
             config = Svc.PluginInterface.GetPluginConfig() as Config ?? new();

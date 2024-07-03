@@ -6,5 +6,6 @@
     "Punchline": "Experimental Weatherman functions. ",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/NightmareXIV/WExtras",
-    "LoadPriority": 0
+    "LoadPriority": 0,
+    "DalamudApiLevel": 10
 }
