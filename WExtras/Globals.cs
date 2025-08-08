@@ -3,7 +3,7 @@ global using System.Collections.Generic;
 global using System.Linq;
 global using System.Text;
 global using System.Threading.Tasks;
-global using ImGuiNET;
+global using Dalamud.Bindings.ImGui;
 global using System.Numerics;
 global using Dalamud.Logging;
 global using Dalamud.Game.ClientState.Conditions;
