@@ -3,6 +3,7 @@ using Dalamud.Game;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using ECommons;
+using ECommons.IPC;
 using ECommons.Logging;
 using Lumina.Excel.Sheets;
 using System;
@@ -55,17 +56,16 @@ namespace WExtras
         {
             try
             {
-                var plugin = GetWeathermanPlugin();
-                var timeAllowedZones = (HashSet<ushort>)plugin.GetType().GetField("timeAllowedZones", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(plugin);
-                foreach (var z in Svc.Data.GetExcelSheet<TerritoryType>())
+                var timeAllowedZones = ECommonsIPC.Weatherman.DataGetTimeAllowedZones();
+                foreach(var z in Svc.Data.GetExcelSheet<TerritoryType>())
                 {
                     timeAllowedZones.Add((ushort)z.RowId);
                 }
                 return true;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                //PluginLog.Error($"{e.Message}\n{e.StackTrace}");
+                PluginLog.Error($"{e.Message}\n{e.StackTrace}");
             }
             return false;
         }
@@ -74,10 +74,9 @@ namespace WExtras
         {
             try
             {
-                var plugin = GetWeathermanPlugin();
-                plugin.GetType().GetField("SelectedWeather", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(plugin, weather);
+                ECommonsIPC.Weatherman.SetWeather(weather);
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 PluginLog.Error($"{e.Message}\n{e.StackTrace}");
             }
@@ -87,15 +86,14 @@ namespace WExtras
         {
             try
             {
-                var plugin = GetWeathermanPlugin();
-                var timeAllowedZones = (HashSet<ushort>)plugin.GetType().GetField("weatherAllowedZones", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(plugin);
-                foreach (var z in Svc.Data.GetExcelSheet<TerritoryType>())
+                var timeAllowedZones = ECommonsIPC.Weatherman.DataGetTimeAllowedZones();
+                foreach(var z in Svc.Data.GetExcelSheet<TerritoryType>())
                 {
                     timeAllowedZones.Add((ushort)z.RowId);
                 }
                 return true;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 //PluginLog.Error($"{e.Message}\n{e.StackTrace}");
             }
@@ -106,46 +104,10 @@ namespace WExtras
         {
             try
             {
-                var plugin = GetWeathermanPlugin();
-                return (Dictionary<byte, string>)plugin.GetType().GetField("weathers", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(plugin);
+                return ECommonsIPC.Weatherman.DataGetWeathers();
             }
             catch(Exception e)
             {
-                return null;
-            }
-        }
-
-        IDalamudPlugin GetWeathermanPlugin()
-        {
-            try
-            {
-                var pluginManager = Svc.PluginInterface.GetType().Assembly.
-                    GetType("Dalamud.Service`1", true).MakeGenericType(Svc.PluginInterface.GetType().Assembly.GetType("Dalamud.Plugin.Internal.PluginManager", true)).
-                    GetMethod("Get").Invoke(null, BindingFlags.Default, null, new object[] { }, null);
-                var installedPlugins = (System.Collections.IList)pluginManager.GetType().GetProperty("InstalledPlugins").GetValue(pluginManager);
-
-                foreach (var t in installedPlugins)
-                {
-                    if ((string)t.GetType().GetProperty("Name").GetValue(t) == "Weatherman")
-                    {
-                        var type = t.GetType().Name == "LocalDevPlugin" ? t.GetType().BaseType : t.GetType();
-                        var plugin = (IDalamudPlugin)type.GetField("instance", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(t);
-                        if ((bool)plugin.GetType().GetField("Init", BindingFlags.Static | BindingFlags.NonPublic).GetValue(plugin))
-                        {
-                            return plugin;
-                        }
-                        else
-                        {
-                            throw new Exception("Weatherman is not initialized");
-                        }
-                    }
-                }
-                return null;
-            }
-            catch (Exception e)
-            {
-                PluginLog.Error("Can't find Weatherman plugin: " + e.Message);
-                PluginLog.Error(e.StackTrace);
                 return null;
             }
         }

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32314.265
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WExtras", "WExtras\WExtras.csproj", "{B246BB4D-EDB6-4EB8-8864-1D631A4ABD64}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommons", "..\ECommons\ECommons\ECommons.csproj", "{09DDB1AC-77A5-4ECE-BBE7-7CA427ED916B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommons.IPC", "ECommons.IPC\ECommons.IPC\ECommons.IPC.csproj", "{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{09DDB1AC-77A5-4ECE-BBE7-7CA427ED916B}.Release|Any CPU.Build.0 = Release|x64
 		{09DDB1AC-77A5-4ECE-BBE7-7CA427ED916B}.Release|x64.ActiveCfg = Release|x64
 		{09DDB1AC-77A5-4ECE-BBE7-7CA427ED916B}.Release|x64.Build.0 = Release|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Debug|Any CPU.Build.0 = Debug|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Debug|x64.ActiveCfg = Debug|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Debug|x64.Build.0 = Debug|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Release|Any CPU.ActiveCfg = Release|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Release|Any CPU.Build.0 = Release|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Release|x64.ActiveCfg = Release|x64
+		{46BCE827-5FEF-F90B-9FDE-C93AC92B91CB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
